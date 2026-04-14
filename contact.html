@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join Us — NexusX Club | BVCOE</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">NEXUS<span style="color:var(--accent-purple)">X</span></a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="contact.html" class="active">Join Us</a></li>
+      </ul>
+
+      <div style="display:flex; align-items:center; gap:1rem;">
+        <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">[ LIGHT ]</button>
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== PAGE HEADER ========== -->
+  <div class="page-header">
+    <div class="hero-badge">&#9679; BECOME A MEMBER</div>
+    <h1 style="margin-top:1rem;">Join <span class="glow-text">NexusX</span></h1>
+    <p style="max-width:520px; margin:1rem auto 0;">
+      Fill in the form below and we'll reach out within 48 hours.
+      No experience required — just passion for technology.
+    </p>
+  </div>
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <section class="section">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:3rem;
+                align-items:start; max-width:1100px; margin:0 auto;">
+
+      <!-- LEFT: Info cards -->
+      <div>
+        <div class="section-title" style="text-align:left;">
+          <h2>Why <span class="glow-text">Join?</span></h2>
+          <div class="section-divider" style="margin-left:0;"></div>
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:1.2rem;">
+
+          <div class="card reveal" style="display:flex; gap:1rem; align-items:flex-start; padding:1.5rem;">
+            <div style="font-size:1.8rem; flex-shrink:0;">&#127942;</div>
+            <div>
+              <h3 style="color:var(--accent-cyan); font-size:1rem; margin-bottom:4px;">Win Competitions</h3>
+              <p style="font-size:0.9rem;">Represent BVCOE at national hackathons, coding contests, and tech fests.</p>
+            </div>
+          </div>
+
+          <div class="card reveal" style="display:flex; gap:1rem; align-items:flex-start; padding:1.5rem;">
+            <div style="font-size:1.8rem; flex-shrink:0;">&#128188;</div>
+            <div>
+              <h3 style="color:var(--accent-purple); font-size:1rem; margin-bottom:4px;">Get Placement Ready</h3>
+              <p style="font-size:0.9rem;">DSA prep, mock interviews, resume reviews, and referrals from alumni at top firms.</p>
+            </div>
+          </div>
+
+          <div class="card reveal" style="display:flex; gap:1rem; align-items:flex-start; padding:1.5rem;">
+            <div style="font-size:1.8rem; flex-shrink:0;">&#128101;</div>
+            <div>
+              <h3 style="color:var(--accent-green); font-size:1rem; margin-bottom:4px;">Build Your Network</h3>
+              <p style="font-size:0.9rem;">Connect with seniors, industry mentors, and like-minded peers across all years.</p>
+            </div>
+          </div>
+
+          <div class="card reveal" style="display:flex; gap:1rem; align-items:flex-start; padding:1.5rem;">
+            <div style="font-size:1.8rem; flex-shrink:0;">&#128736;</div>
+            <div>
+              <h3 style="color:var(--accent-cyan); font-size:1rem; margin-bottom:4px;">Build Real Projects</h3>
+              <p style="font-size:0.9rem;">Work on live projects, contribute to open source, and grow your GitHub portfolio.</p>
+            </div>
+          </div>
+
+          <div class="card reveal" style="display:flex; gap:1rem; align-items:flex-start; padding:1.5rem;">
+            <div style="font-size:1.8rem; flex-shrink:0;">&#127891;</div>
+            <div>
+              <h3 style="color:var(--accent-purple); font-size:1rem; margin-bottom:4px;">Learn from Experts</h3>
+              <p style="font-size:0.9rem;">Attend exclusive workshops and guest talks by engineers from Google, Microsoft & more.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- RIGHT: Registration Form -->
+      <div class="reveal">
+        <div class="form-wrapper" style="margin:0;">
+
+          <div style="margin-bottom:2rem;">
+            <h2 style="font-size:1.4rem; margin-bottom:0.3rem;">
+              Registration <span class="glow-text">Form</span>
+            </h2>
+            <p style="font-size:0.85rem;">All fields marked * are required.</p>
+          </div>
+
+          <form id="joinForm" novalidate>
+
+            <!-- Full Name -->
+            <div class="form-group">
+              <label for="fullName">Full Name *</label>
+              <input type="text" id="fullName" placeholder="e.g. Arjun Kapoor" />
+              <span class="error-msg" id="err-fullName">&#9888; Please enter your full name.</span>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" placeholder="e.g. arjun@bvcoe.edu.in" />
+              <span class="error-msg" id="err-email">&#9888; Please enter a valid email address.</span>
+            </div>
+
+            <!-- Phone -->
+            <div class="form-group">
+              <label for="phone">Phone Number *</label>
+              <input type="tel" id="phone" placeholder="10-digit mobile number" maxlength="10" />
+              <span class="error-msg" id="err-phone">&#9888; Phone must be exactly 10 digits.</span>
+            </div>
+
+            <!-- Branch & Section -->
+            <div class="form-group">
+              <label for="year">Branch, Year &amp; Section *</label>
+              <select id="year">
+                <option value="">— Select branch, year &amp; section —</option>
+
+                <optgroup label="CSE">
+                  <option value="CSE-1-1">CSE — 1st Year, Section 1</option>
+                  <option value="CSE-1-2">CSE — 1st Year, Section 2</option>
+                  <option value="CSE-2-1">CSE — 2nd Year, Section 1</option>
+                  <option value="CSE-2-2">CSE — 2nd Year, Section 2</option>
+                  <option value="CSE-3-1">CSE — 3rd Year, Section 1</option>
+                  <option value="CSE-3-2">CSE — 3rd Year, Section 2</option>
+                  <option value="CSE-4-1">CSE — 4th Year, Section 1</option>
+                  <option value="CSE-4-2">CSE — 4th Year, Section 2</option>
+                </optgroup>
+
+                <optgroup label="IT">
+                  <option value="IT-1-1">IT — 1st Year, Section 1</option>
+                  <option value="IT-1-2">IT — 1st Year, Section 2</option>
+                  <option value="IT-2-1">IT — 2nd Year, Section 1</option>
+                  <option value="IT-2-2">IT — 2nd Year, Section 2</option>
+                  <option value="IT-3-1">IT — 3rd Year, Section 1</option>
+                  <option value="IT-3-2">IT — 3rd Year, Section 2</option>
+                  <option value="IT-4-1">IT — 4th Year, Section 1</option>
+                  <option value="IT-4-2">IT — 4th Year, Section 2</option>
+                </optgroup>
+
+                <optgroup label="ECE">
+                  <option value="ECE-1-1">ECE — 1st Year, Section 1</option>
+                  <option value="ECE-1-2">ECE — 1st Year, Section 2</option>
+                  <option value="ECE-2-1">ECE — 2nd Year, Section 1</option>
+                  <option value="ECE-2-2">ECE — 2nd Year, Section 2</option>
+                  <option value="ECE-3-1">ECE — 3rd Year, Section 1</option>
+                  <option value="ECE-3-2">ECE — 3rd Year, Section 2</option>
+                  <option value="ECE-4-1">ECE — 4th Year, Section 1</option>
+                  <option value="ECE-4-2">ECE — 4th Year, Section 2</option>
+                </optgroup>
+
+                <optgroup label="ICE">
+                  <option value="ICE-1-1">ICE — 1st Year, Section 1</option>
+                  <option value="ICE-1-2">ICE — 1st Year, Section 2</option>
+                  <option value="ICE-2-1">ICE — 2nd Year, Section 1</option>
+                  <option value="ICE-2-2">ICE — 2nd Year, Section 2</option>
+                  <option value="ICE-3-1">ICE — 3rd Year, Section 1</option>
+                  <option value="ICE-3-2">ICE — 3rd Year, Section 2</option>
+                  <option value="ICE-4-1">ICE — 4th Year, Section 1</option>
+                  <option value="ICE-4-2">ICE — 4th Year, Section 2</option>
+                </optgroup>
+
+              </select>
+              <span class="error-msg" id="err-year">&#9888; Please select your branch, year and section.</span>
+            </div>
+
+            <!-- Area of Interest -->
+            <div class="form-group">
+              <label for="interest">Area of Interest *</label>
+              <select id="interest">
+                <option value="">— Select your domain —</option>
+                <option value="web">Web Development</option>
+                <option value="ml">Artificial Intelligence / ML</option>
+                <option value="cyber">Cybersecurity</option>
+                <option value="cloud">Cloud Computing</option>
+                <option value="app">App Development</option>
+                <option value="cp">Competitive Programming</option>
+                <option value="design">UI/UX Design</option>
+                <option value="other">Other / Exploring</option>
+              </select>
+              <span class="error-msg" id="err-interest">&#9888; Please select an area of interest.</span>
+            </div>
+
+            <!-- Why Join -->
+            <div class="form-group">
+              <label for="message">Why do you want to join NexusX? (optional)</label>
+              <textarea id="message" rows="3"
+                placeholder="Tell us a bit about yourself and what you hope to gain..."></textarea>
+            </div>
+
+            <!-- Submit -->
+            <button type="submit" class="btn btn-primary" style="width:100%; margin-top:0.5rem;">
+              Submit Application &#8594;
+            </button>
+
+          </form>
+
+          <!-- Success Message -->
+          <div id="successMsg" style="display:none; text-align:center; padding:2rem 0;">
+            <div style="font-size:3rem; margin-bottom:1rem;">&#9989;</div>
+            <h3 style="color:var(--accent-green); margin-bottom:0.75rem;">
+              Application Received!
+            </h3>
+            <p style="font-size:0.95rem;">
+              Welcome aboard, <strong id="successName"></strong>!
+              We'll reach out to your email within 48 hours.
+            </p>
+            <button onclick="resetForm()" class="btn btn-secondary"
+                    style="margin-top:1.5rem;">
+              Submit Another
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== CONTACT INFO ========== -->
+  <section style="position:relative; z-index:1; padding:0 2rem 6rem;">
+    <div style="max-width:900px; margin:0 auto;">
+      <div class="section-title reveal">
+        <h2>Get in <span class="glow-text">Touch</span></h2>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="grid-3">
+
+        <div class="card reveal" style="text-align:center;">
+          <div style="font-size:2rem; margin-bottom:0.75rem;">&#128231;</div>
+          <h3 style="color:var(--accent-cyan); font-size:1rem; margin-bottom:0.5rem;">Email Us</h3>
+          <p style="font-family:var(--font-mono); font-size:0.85rem;">
+            nexusx@bvcoe.edu.in
+          </p>
+        </div>
+
+        <div class="card reveal" style="text-align:center;">
+          <div style="font-size:2rem; margin-bottom:0.75rem;">&#128205;</div>
+          <h3 style="color:var(--accent-purple); font-size:1rem; margin-bottom:0.5rem;">Find Us</h3>
+          <p style="font-family:var(--font-mono); font-size:0.85rem;">
+            CS Lab Block B, BVCOE<br />Paschim Vihar, New Delhi
+          </p>
+        </div>
+
+        <div class="card reveal" style="text-align:center;">
+          <div style="font-size:2rem; margin-bottom:0.75rem;">&#128337;</div>
+          <h3 style="color:var(--accent-green); font-size:1rem; margin-bottom:0.5rem;">Club Hours</h3>
+          <p style="font-family:var(--font-mono); font-size:0.85rem;">
+            Mon — Fri<br />3:00 PM — 6:00 PM
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <p>
+      &copy; 2025 <span>NexusX Club</span> &mdash;
+      Department of Computer Science &amp; Engineering,
+      Bharati Vidyapeeth's College of Engineering, New Delhi.
+    </p>
+    <p style="margin-top:0.5rem;">Built with <span>&#9829;</span> by NexusX Members</p>
+  </footer>
+
+  <!-- ========== SCRIPTS ========== -->
+  <script src="js/script.js"></script>
+
+  <script>
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^[0-9]{10}$/;
+
+    function showError(fieldId, errId) {
+      document.getElementById(fieldId).classList.add('invalid');
+      document.getElementById(errId).classList.add('show');
+    }
+
+    function clearError(fieldId, errId) {
+      document.getElementById(fieldId).classList.remove('invalid');
+      document.getElementById(errId).classList.remove('show');
+    }
+
+    /* Live validation */
+    ['fullName', 'email', 'phone', 'year', 'interest'].forEach(id => {
+      const el = document.getElementById(id);
+      el.addEventListener('input',  () => clearError(id, 'err-' + id));
+      el.addEventListener('change', () => clearError(id, 'err-' + id));
+    });
+
+    /* Only digits in phone */
+    document.getElementById('phone').addEventListener('keypress', (e) => {
+      if (!/[0-9]/.test(e.key)) e.preventDefault();
+    });
+
+    /* Form submit */
+    document.getElementById('joinForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name     = document.getElementById('fullName').value.trim();
+      const email    = document.getElementById('email').value.trim();
+      const phone    = document.getElementById('phone').value.trim();
+      const year     = document.getElementById('year').value;
+      const interest = document.getElementById('interest').value;
+
+      let valid = true;
+
+      if (name.length < 2)          { showError('fullName', 'err-fullName'); valid = false; }
+      else                           { clearError('fullName', 'err-fullName'); }
+
+      if (!emailRegex.test(email))   { showError('email', 'err-email'); valid = false; }
+      else                           { clearError('email', 'err-email'); }
+
+      if (!phoneRegex.test(phone))   { showError('phone', 'err-phone'); valid = false; }
+      else                           { clearError('phone', 'err-phone'); }
+
+      if (!year)                     { showError('year', 'err-year'); valid = false; }
+      else                           { clearError('year', 'err-year'); }
+
+      if (!interest)                 { showError('interest', 'err-interest'); valid = false; }
+      else                           { clearError('interest', 'err-interest'); }
+
+      if (valid) {
+        document.getElementById('joinForm').style.display = 'none';
+        document.getElementById('successName').textContent = name;
+        document.getElementById('successMsg').style.display = 'block';
+      }
+    });
+
+    /* Reset */
+    function resetForm() {
+      document.getElementById('joinForm').reset();
+      document.getElementById('joinForm').style.display = 'block';
+      document.getElementById('successMsg').style.display = 'none';
+      ['fullName','email','phone','year','interest'].forEach(id => {
+        clearError(id, 'err-' + id);
+      });
+    }
+
+    /* Scroll Reveal */
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    /* Responsive layout */
+    function checkLayout() {
+      const grid = document.querySelector('.section > div[style*="grid-template-columns"]');
+      if (!grid) return;
+      grid.style.gridTemplateColumns = window.innerWidth < 768 ? '1fr' : '1fr 1fr';
+    }
+
+    window.addEventListener('resize', checkLayout);
+    checkLayout();
+
+  </script>
+
+</body>
+</html>

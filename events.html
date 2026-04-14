@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events — NexusX Club | BVCOE</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">NEXUS<span style="color:var(--accent-purple)">X</span></a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="events.html" class="active">Events</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="contact.html">Join Us</a></li>
+      </ul>
+
+      <div style="display:flex; align-items:center; gap:1rem;">
+        <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">[ LIGHT ]</button>
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== PAGE HEADER ========== -->
+  <div class="page-header">
+    <div class="hero-badge">&#9679; WHAT'S HAPPENING</div>
+    <h1 style="margin-top:1rem;">Club <span class="glow-text">Events</span></h1>
+    <p style="max-width:520px; margin:1rem auto 0;">
+      From hackathons to workshops — here's everything NexusX has planned.
+      Filter by category and never miss out.
+    </p>
+  </div>
+
+  <!-- ========== FILTER BUTTONS ========== -->
+  <section class="section" style="padding-bottom:0;">
+    <div style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:center;" id="filterBar">
+      <button class="filter-btn active-filter" onclick="filterEvents('all', this)">All</button>
+      <button class="filter-btn" onclick="filterEvents('workshop', this)">Workshops</button>
+      <button class="filter-btn" onclick="filterEvents('hackathon', this)">Hackathons</button>
+      <button class="filter-btn" onclick="filterEvents('talk', this)">Guest Talks</button>
+      <button class="filter-btn" onclick="filterEvents('contest', this)">Contests</button>
+    </div>
+  </section>
+
+  <!-- ========== EVENTS GRID (JS generated) ========== -->
+  <section class="section">
+    <div class="grid-3" id="eventsGrid">
+      <!-- Cards injected by JavaScript -->
+    </div>
+    <p id="noEvents" style="display:none; text-align:center; color:var(--text-secondary);
+       font-family:var(--font-mono); margin-top:2rem;">
+      No events found in this category.
+    </p>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <p>
+      &copy; 2025 <span>NexusX Club</span> &mdash;
+      Department of Computer Science &amp; Engineering,
+      Bharati Vidyapeeth's College of Engineering, New Delhi.
+    </p>
+    <p style="margin-top:0.5rem;">Built with <span>&#9829;</span> by NexusX Members</p>
+  </footer>
+
+  <!-- ========== SCRIPTS ========== -->
+  <script src="js/script.js"></script>
+
+  <script>
+    /* ---- Events Data Array ---- */
+    const events = [
+      {
+        title: "HackNexus 2025",
+        date: "March 15, 2025",
+        time: "9:00 AM — 9:00 PM",
+        venue: "CS Lab Block B",
+        category: "hackathon",
+        status: "upcoming",
+        desc: "24-hour hackathon open to all BVCOE students. Build anything — web, app, AI, hardware. Prizes worth ₹50,000!",
+        icon: "&#128187;"
+      },
+      {
+        title: "Web Dev Bootcamp",
+        date: "February 20, 2025",
+        time: "2:00 PM — 5:00 PM",
+        venue: "Seminar Hall",
+        category: "workshop",
+        status: "upcoming",
+        desc: "Hands-on workshop covering HTML, CSS, JavaScript, and deploying your first website. Beginner friendly!",
+        icon: "&#127760;"
+      },
+      {
+        title: "Google Engineer Talk",
+        date: "February 5, 2025",
+        time: "11:00 AM — 12:30 PM",
+        venue: "Auditorium",
+        category: "talk",
+        status: "upcoming",
+        desc: "Live session with a senior SWE from Google India on cracking FAANG interviews and life at big tech.",
+        icon: "&#127908;"
+      },
+      {
+        title: "Code Sprint #3",
+        date: "January 28, 2025",
+        time: "3:00 PM — 6:00 PM",
+        venue: "CS Lab A",
+        category: "contest",
+        status: "past",
+        desc: "3-hour competitive coding contest on Codeforces. 5 problems, 3 divisions. 120 participants registered.",
+        icon: "&#9889;"
+      },
+      {
+        title: "ML Workshop: Intro to Neural Nets",
+        date: "January 18, 2025",
+        time: "10:00 AM — 1:00 PM",
+        venue: "Seminar Hall",
+        category: "workshop",
+        status: "past",
+        desc: "Beginner-friendly workshop on how neural networks work. Built a digit classifier from scratch using Python.",
+        icon: "&#129302;"
+      },
+      {
+        title: "Cybersecurity CTF",
+        date: "December 10, 2024",
+        time: "10:00 AM — 4:00 PM",
+        venue: "CS Lab Block B",
+        category: "contest",
+        status: "past",
+        desc: "Capture The Flag competition with challenges in web exploitation, reverse engineering, and cryptography.",
+        icon: "&#128272;"
+      },
+      {
+        title: "Cloud Computing Talk",
+        date: "April 3, 2025",
+        time: "2:00 PM — 3:30 PM",
+        venue: "Seminar Hall",
+        category: "talk",
+        status: "upcoming",
+        desc: "Industry expert from AWS India walks through cloud fundamentals, certifications, and career opportunities.",
+        icon: "&#9729;"
+      },
+      {
+        title: "App Dev Workshop",
+        date: "April 12, 2025",
+        time: "10:00 AM — 1:00 PM",
+        venue: "CS Lab A",
+        category: "workshop",
+        status: "upcoming",
+        desc: "Build your first Flutter app from scratch. Learn Dart basics, UI components, and publish to Play Store.",
+        icon: "&#128241;"
+      },
+      {
+        title: "Inter-College Hackathon",
+        date: "November 20, 2024",
+        time: "9:00 AM — 9:00 PM",
+        venue: "Main Auditorium",
+        category: "hackathon",
+        status: "past",
+        desc: "NexusX represented BVCOE at the inter-college hackathon. Our team won 2nd place in the AI category!",
+        icon: "&#127942;"
+      }
+    ];
+
+    /* ---- Render Events ---- */
+    function renderEvents(filter) {
+      const grid = document.getElementById('eventsGrid');
+      const noMsg = document.getElementById('noEvents');
+      grid.innerHTML = '';
+
+      const filtered = filter === 'all'
+        ? events
+        : events.filter(e => e.category === filter);
+
+      if (filtered.length === 0) {
+        noMsg.style.display = 'block';
+        return;
+      }
+
+      noMsg.style.display = 'none';
+
+      filtered.forEach((ev, i) => {
+        const card = document.createElement('div');
+        card.className = 'card reveal';
+        card.style.animationDelay = `${i * 0.08}s`;
+
+        card.innerHTML = `
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.75rem;">
+            <span class="event-badge ${ev.status === 'upcoming' ? 'badge-upcoming' : 'badge-past'}">
+              ${ev.status === 'upcoming' ? '&#9679; UPCOMING' : '&#10003; PAST'}
+            </span>
+            <span style="font-size:2rem;">${ev.icon}</span>
+          </div>
+          <h3 style="color:var(--text-primary); margin-bottom:0.75rem; font-size:1.1rem;">${ev.title}</h3>
+          <p style="margin-bottom:1rem; font-size:0.95rem;">${ev.desc}</p>
+          <div style="border-top:1px solid var(--border-glow); padding-top:1rem; margin-top:auto;">
+            <p style="font-family:var(--font-mono); font-size:0.78rem; color:var(--accent-cyan); margin-bottom:4px;">
+              &#128197; ${ev.date}
+            </p>
+            <p style="font-family:var(--font-mono); font-size:0.78rem; color:var(--text-secondary); margin-bottom:4px;">
+              &#128336; ${ev.time}
+            </p>
+            <p style="font-family:var(--font-mono); font-size:0.78rem; color:var(--text-secondary);">
+              &#128205; ${ev.venue}
+            </p>
+          </div>
+        `;
+
+        grid.appendChild(card);
+      });
+
+      /* Re-observe new cards for scroll reveal */
+      document.querySelectorAll('.reveal').forEach(el => {
+        el.classList.remove('visible');
+        revealObserver.observe(el);
+      });
+    }
+
+    /* ---- Filter Button Handler ---- */
+    function filterEvents(category, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active-filter'));
+      btn.classList.add('active-filter');
+      renderEvents(category);
+    }
+
+    /* ---- Scroll Reveal ---- */
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+
+    /* ---- Init ---- */
+    renderEvents('all');
+  </script>
+
+  <!-- Filter button styles -->
+  <style>
+    .filter-btn {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      letter-spacing: 1px;
+      padding: 8px 22px;
+      border-radius: 50px;
+      border: 1px solid var(--border-glow);
+      background: transparent;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+    }
+    .filter-btn:hover {
+      border-color: var(--accent-cyan);
+      color: var(--accent-cyan);
+    }
+    .filter-btn.active-filter {
+      background: var(--accent-cyan);
+      color: #0a0e17;
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 15px rgba(0,245,255,0.3);
+    }
+  </style>
+
+</body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Team — NexusX Club | BVCOE</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">NEXUS<span style="color:var(--accent-purple)">X</span></a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="team.html" class="active">Team</a></li>
+        <li><a href="contact.html">Join Us</a></li>
+      </ul>
+
+      <div style="display:flex; align-items:center; gap:1rem;">
+        <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">[ LIGHT ]</button>
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== PAGE HEADER ========== -->
+  <div class="page-header">
+    <div class="hero-badge">&#9679; THE PEOPLE BEHIND NEXUSX</div>
+    <h1 style="margin-top:1rem;">Meet the <span class="glow-text">Team</span></h1>
+    <p style="max-width:520px; margin:1rem auto 0;">
+      Passionate engineers, designers, and problem-solvers who keep
+      NexusX running. Say hi at the next event!
+    </p>
+  </div>
+
+  <!-- ========== FACULTY ADVISOR ========== -->
+  <section class="section" style="padding-bottom:0;">
+    <div class="section-title reveal">
+      <h2>Faculty <span class="glow-text">Advisor</span></h2>
+      <div class="section-divider"></div>
+    </div>
+
+    <div style="max-width:420px; margin:0 auto;">
+      <div class="card team-card reveal" style="padding:2.5rem;">
+        <div class="team-avatar" style="width:110px; height:110px; font-size:2rem;">MT</div>
+        <div class="team-name" style="font-size:1.3rem; margin-bottom:6px;">Prof. Mohit Tiwari</div>
+        <div class="team-role">Faculty Advisor &mdash; CSE Dept.</div>
+        <p style="margin-top:1rem; font-size:0.95rem;">
+          Guiding NexusX with industry insight and academic excellence.
+          Specialist in Web Technologies and Software Engineering.
+        </p>
+        <div style="margin-top:1.2rem;">
+          <span style="font-family:var(--font-mono); font-size:0.78rem;
+                color:var(--accent-green); border:1px solid rgba(57,255,20,0.3);
+                padding:4px 14px; border-radius:50px;">
+            &#9679; BVCOE Faculty
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CORE TEAM ========== -->
+  <section class="section" style="padding-bottom:0;">
+    <div class="section-title reveal">
+      <h2>Core <span class="glow-text">Team</span></h2>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="grid-3" id="coreTeamGrid"></div>
+  </section>
+
+  <!-- ========== DOMAIN LEADS ========== -->
+  <section class="section">
+    <div class="section-title reveal">
+      <h2>Domain <span class="glow-text">Leads</span></h2>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="grid-4" id="domainLeadsGrid"></div>
+  </section>
+
+  <!-- ========== JOIN BANNER ========== -->
+  <section style="position:relative; z-index:1; padding:0 2rem 6rem;">
+    <div style="max-width:700px; margin:0 auto; text-align:center;"
+         class="card reveal">
+      <div style="font-size:2.5rem; margin-bottom:1rem;">&#128640;</div>
+      <h2 style="margin-bottom:1rem;">
+        Want to be on this page?
+      </h2>
+      <p style="margin-bottom:2rem;">
+        We recruit new members every semester. If you're passionate about
+        technology and want to lead, build, and inspire — NexusX wants you.
+      </p>
+      <a href="contact.html" class="btn btn-primary">Apply Now</a>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <p>
+      &copy; 2025 <span>NexusX Club</span> &mdash;
+      Department of Computer Science &amp; Engineering,
+      Bharati Vidyapeeth's College of Engineering, New Delhi.
+    </p>
+    <p style="margin-top:0.5rem;">Built with <span>&#9829;</span> by NexusX Members</p>
+  </footer>
+
+  <!-- ========== SCRIPTS ========== -->
+  <script src="js/script.js"></script>
+
+  <script>
+    /* ---- Team Data ---- */
+    const coreTeam = [
+      {
+        initials: "AK",
+        name: "Arjun Kapoor",
+        role: "President",
+        year: "4th Year — CSE",
+        desc: "Full-stack dev. GSoC contributor. Loves competitive programming and open source.",
+        color: "var(--accent-cyan)"
+      },
+      {
+        initials: "PS",
+        name: "Priya Sharma",
+        role: "Vice President",
+        year: "3rd Year — CSE",
+        desc: "ML researcher and hackathon champion. Led NexusX to 3 national-level wins.",
+        color: "var(--accent-purple)"
+      },
+      {
+        initials: "RV",
+        name: "Rohan Verma",
+        role: "Technical Head",
+        year: "3rd Year — CSE",
+        desc: "Backend wizard. Built NexusX's internal project tracker and event portal.",
+        color: "var(--accent-green)"
+      },
+      {
+        initials: "NK",
+        name: "Nisha Kumari",
+        role: "Events Head",
+        year: "3rd Year — CSE",
+        desc: "Organises every NexusX event from scratch. HackNexus 2025 is her baby.",
+        color: "var(--accent-cyan)"
+      },
+      {
+        initials: "SM",
+        name: "Sahil Mehta",
+        role: "Design Head",
+        year: "2nd Year — CSE",
+        desc: "UI/UX designer and brand guardian. Designed the NexusX identity from scratch.",
+        color: "var(--accent-purple)"
+      },
+      {
+        initials: "DA",
+        name: "Divya Anand",
+        role: "PR & Outreach",
+        year: "2nd Year — CSE",
+        desc: "Manages social media, sponsorships, and college partnerships for NexusX.",
+        color: "var(--accent-green)"
+      }
+    ];
+
+    const domainLeads = [
+      { initials: "VK", name: "Varun Kumar",   role: "Web Dev Lead",    color: "var(--accent-cyan)"   },
+      { initials: "AT", name: "Anjali Tiwari", role: "AI / ML Lead",    color: "var(--accent-purple)" },
+      { initials: "KS", name: "Karan Singh",   role: "Cybersec Lead",   color: "var(--accent-green)"  },
+      { initials: "MP", name: "Meera Pillai",  role: "Cloud Lead",      color: "var(--accent-cyan)"   },
+      { initials: "RS", name: "Ravi Sharma",   role: "App Dev Lead",    color: "var(--accent-purple)" },
+      { initials: "PJ", name: "Pooja Joshi",   role: "CompCode Lead",   color: "var(--accent-green)"  },
+      { initials: "AB", name: "Aman Bhatia",   role: "Content Lead",    color: "var(--accent-cyan)"   },
+      { initials: "SN", name: "Shreya Nair",   role: "Research Lead",   color: "var(--accent-purple)" }
+    ];
+
+    /* ---- Render Core Team ---- */
+    function renderCoreTeam() {
+      const grid = document.getElementById('coreTeamGrid');
+      coreTeam.forEach((member, i) => {
+        const card = document.createElement('div');
+        card.className = 'card team-card reveal';
+        card.innerHTML = `
+          <div class="team-avatar" style="background: linear-gradient(135deg, ${member.color}, var(--bg-dark));
+               border: 2px solid ${member.color}; color: ${member.color};">
+            ${member.initials}
+          </div>
+          <div class="team-name">${member.name}</div>
+          <div class="team-role" style="color:${member.color};">${member.role}</div>
+          <p style="font-family:var(--font-mono); font-size:0.75rem;
+             color:var(--text-secondary); margin:6px 0 0.75rem;">
+            ${member.year}
+          </p>
+          <p style="font-size:0.9rem;">${member.desc}</p>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    /* ---- Render Domain Leads ---- */
+    function renderDomainLeads() {
+      const grid = document.getElementById('domainLeadsGrid');
+      domainLeads.forEach((member) => {
+        const card = document.createElement('div');
+        card.className = 'card team-card reveal';
+        card.innerHTML = `
+          <div class="team-avatar" style="width:70px; height:70px; font-size:1.2rem;
+               background: linear-gradient(135deg, ${member.color}, var(--bg-dark));
+               border: 2px solid ${member.color}; color: ${member.color};">
+            ${member.initials}
+          </div>
+          <div class="team-name" style="font-size:1rem;">${member.name}</div>
+          <div class="team-role" style="color:${member.color};">${member.role}</div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    /* ---- Scroll Reveal ---- */
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+
+    /* ---- Init ---- */
+    renderCoreTeam();
+    renderDomainLeads();
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+  </script>
+
+</body>
+</html>
